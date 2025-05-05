@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>李正元 | 个人网站</title>
+    
+    <!-- 外部资源 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 背景系统 -->
+    <div id="bg-layer" class="layered-bg"></div>
+    <div id="particles" class="layered-bg"></div>
+    <div class="gradient-overlay"></div>
+
+    <!-- 主要内容 -->
+    <main class="content">
+        <!-- 首屏 -->
+        <section class="hero">
+            <h1 class="animate__animated animate__fadeInDown">李正元|捕捉世界的呼吸</h1>
+            <p class="animate__animated animate__fadeInUp animate__delay-1s">一个无聊的人</p>
+        </section>
+
+        <!-- 个人简介 -->
+        <section class="profile section-bg">
+            <img data-src="a.jpg" alt="头像" class="avatar animate__animated animate__fadeInLeft">
+            <div class="bio animate__animated animate__fadeInRight">
+                <h2>李正元</h2>
+                <h3>关于我</h3>
+                <p>
+                    15年做人经验，擅长活着...
+                    <br />。<br />
+                    <br />。<br />
+                    <br />。<br />
+                </p>
+                <div class="social">
+                    <a href="https://space.bilibili.com/1971413853?spm_id_from=333.1007.0.0" class="hvr-icon-float">📷 bilibili</a>
+                    <a href="https://github.com/lzyyyds0902" class="hvr-icon-float">📘 Github</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 专栏文章 -->
+        <section class="articles section-bg">
+            <h2>最新专栏</h2>
+            <article class="card animate__animated">
+                <div class="tags">
+                    <span>景深控制</span>
+                    <span>镜头美学</span>
+                </div>
+                <h3>掌握画面呼吸感的六大法则</h3>
+                <p>探索焦点与虚化的黄金比例...</p>
+            </article>
+            <!-- 更多文章... -->
+        </section>
+    </main>
+
+    <style>
+        /* 基础样式 */
+        :root {
+            --primary-color: rgba(255,255,255,0.9);
+            --accent-color: #6AB7D8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-color);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* 背景系统 */
+        .layered-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+        }
+
+        #bg-layer {
+            background: linear-gradient(45deg, rgba(18, 32, 45, 0.9), rgba(35, 47, 62, 0.7)),
+                        url('https://source.unsplash.com/1920x1080/?nature,blur') center/cover fixed;
+            filter: blur(3px) brightness(0.8);
+            transition: filter 0.5s;
+        }
+
+        .gradient-overlay {
+            background: linear-gradient(120deg, #2c3e5020, #3498db20, #e74c3c20);
+            animation: gradientShift 20s infinite;
+        }
+
+        /* 内容容器 */
+        .content {
+            position: relative;
+            min-height: 100vh;
+            padding: 80px 20px;
+            backdrop-filter: blur(10px);
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        /* 个人简介 */
+        .profile {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 80px auto;
+        }
+
+        .avatar {
+            width: 100%;
+            border-radius: 15px;
+            transform: perspective(1000px) rotateY(-10deg);
+            transition: transform 0.5s;
+        }
+
+        .avatar:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        /* 卡片设计 */
+        .card {
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        /* 动画定义 */
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .profile {
+                grid-template-columns: 1fr;
+            }
+            
+            #bg-layer {
+                background-attachment: scroll;
+            }
+        }
+    </style>
+
+    <!-- 脚本 -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        // 粒子系统
+        particlesJS('particles', {
+            particles: {
+                number: { value: 60 },
+                color: { value: "#FFFFFF" },
+                opacity: { value: 0.5 },
+                move: { speed: 1 }
+            }
+        });
+
+        // 滚动动画
+        ScrollReveal().reveal('.card', {
+            delay: 200,
+            distance: '50px',
+            origin: 'bottom',
+            interval: 100
+        });
+
+        // 视差效果
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            document.getElementById('bg-layer').style.transform = 
+                `translate3d(0, ${scrolled * 0.3}px, 0)`;
+        });
+
+        // 图片懒加载
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    observer.unobserve(img);
+                }
+            });
+        });
+        document.querySelectorAll('[data-src]').forEach(img => observer.observe(img));
+    </script>
+</body>
+</html>
